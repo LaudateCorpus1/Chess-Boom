@@ -1,12 +1,11 @@
 import './App.css';
 import ChessBoom from './ChessBoom/ChessBoom';
-import Body from 'react-bootstrap/ToastBody';
 
 function App() {
 	return (
-		<Body className='App-header'>
+		<div className='App-header'>
 			<ChessBoom />
-		</Body>
+		</div>
 	);
 }
 
