@@ -8,31 +8,32 @@ const ChessBoom = () => {
 	const [result, setResult] = useState('');
 	const [rounds, setRounds] = useState(1);
 
+	// Capture the value from the input to its state.
 	const updatePercent = (event) => {
 		setPercent(parseInt(event.currentTarget.value));
 	};
 
+	// Try to shot a bomb calculating the probabily from State, comparing with a
+	// random number between 0 and 100.
+	// It cold be shooted or not.
 	const shotBomb = () => {
 		const probability = randomMinMax(1, 100);
+		setResult('');
 
-		if (probability >= percent) {
-			setRounds(rounds + 1);
+		setTimeout(() => {
+			if (probability >= percent) {
+				setRounds(rounds + 1);
 
-			setResult(<p className='result1 fade-in'>{`¡Round de paz ${rounds}!`}</p>);
-		} else {
-			setRounds(1);
-			const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
-			const colum = letters[randomMinMax(0, 7)];
-			const lane = randomMinMax(1, 8);
+				setResult(<p className='result1 fade-in'>{`¡Rounds sin boom: ${rounds}!`}</p>);
+			} else {
+				setRounds(1);
+				const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+				const colum = letters[randomMinMax(0, 7)];
+				const lane = randomMinMax(1, 8);
 
-			let lastCordenate = [colum, lane];
-
-			let newCordenate = [colum, lane];
-
-			if (lastCordenate !== newCordenate) {
-				setResult(<p className='result2 fade-in'>{`¡Boom en ${colum}${lane}!`}</p>);
+				setResult(<p className='result2 fade-in'>{`¡Boom: ${colum}${lane}!`}</p>);
 			}
-		}
+		}, 2000);
 	};
 
 	return (
@@ -60,7 +61,7 @@ const ChessBoom = () => {
 				Boom?
 			</Button>
 
-			<div>{result}</div>
+			<div className='result-box'>{result}</div>
 		</div>
 	);
 };

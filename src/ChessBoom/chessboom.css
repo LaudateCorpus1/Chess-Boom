@@ -13,6 +13,7 @@
 }
 .title {
 	text-shadow: 5px 5px 8px rgb(0, 0, 0);
+	color: lightcyan;
 }
 
 .form {
@@ -25,7 +26,8 @@
 }
 
 .label {
-	color: rgb(218, 218, 218);
+	color: lightcyan;
+
 	text-shadow: 5px 5px 8px rgb(0, 0, 0);
 }
 .percent-number {
@@ -43,7 +45,15 @@
 	box-shadow: 3px 3px 8px black;
 	margin: 10px 0px 0px 0px;
 }
+.result-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
+	/* border: 1px red solid; */
+	width: 275px;
+	height: 75px;
+}
 .result1 {
 	margin: 15px;
 	text-shadow: 5px 5px 8px rgb(0, 0, 0);
@@ -58,7 +68,7 @@
 }
 
 .fade-in {
-	animation: fadeIn 6s;
+	animation: fadeIn 8s;
 }
 
 @keyframes fadeIn {
