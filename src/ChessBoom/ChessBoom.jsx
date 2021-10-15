@@ -4,7 +4,7 @@ import randomMinMax from './functions';
 import './chessboom.css';
 
 const ChessBoom = () => {
-	const [percent, setPercent] = useState(25);
+	const [percent, setPercent] = useState(30);
 	const [result, setResult] = useState('');
 	const [rounds, setRounds] = useState(1);
 
@@ -26,14 +26,16 @@ const ChessBoom = () => {
 
 				setResult(<p className='result1 fade-in'>{`¡Rounds sin boom: ${rounds}!`}</p>);
 			} else {
-				setRounds(1);
-				const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
-				const colum = letters[randomMinMax(0, 7)];
-				const lane = randomMinMax(1, 8);
+				setTimeout(() => {
+					setRounds(1);
+					const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+					const colum = letters[randomMinMax(0, 7)];
+					const lane = randomMinMax(1, 8);
 
-				setResult(<p className='result2 fade-in'>{`¡Boom: ${colum}${lane}!`}</p>);
+					setResult(<p className='result2 fade-in'>{`¡Boom: ${colum}${lane}!`}</p>);
+				}, 1000);
 			}
-		}, 2000);
+		}, 1000);
 	};
 
 	return (
